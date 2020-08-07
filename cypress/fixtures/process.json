@@ -1,0 +1,17 @@
+{
+  "process_name": "001 Process",
+  "process_desc": "Sample Desc 001",
+   "stage": "Idea",
+   "process_msg": "001 Process opportunity has been added",
+   "delete_msg": "Opportunity 001 Process has been successfully deleted",
+   "org_title": "Organizational Structure",
+   "subdomain": "Test SubDomain",
+   "group": "Test ProcessGrp",
+   "group_msg": "New group created successfully.",
+   "owner_title": "Add Owner",
+   "sme_title": "Add SMEs",
+   "owner": "vidhya.akilesh@gmail.com",
+   "sme": "vidhya.akilesh@gmail.com"    
+
+   
+}

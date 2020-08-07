@@ -1,0 +1,24 @@
+{
+    "projectId": "napkod",
+    "chromeWebSecurity": false,
+    "env": {
+        "ENVIRONMENT": "staging",
+        "baseUrl": "https://weyland-corp-stg.eveapp.net",
+         "qa_username": "videvaraj@deloitte.com.au",
+          "qa_pwd": "Audi@64uab"
+        
+      },
+      "reporter": "mochawesome",
+      "reporterOptions": {
+          "reportDir": "cypress/report/mochawesome-report",
+          "overwrite": "false",
+          "html": "true",
+          "json": "false",
+          "timestamp": "mmddyyyy_HHMMss"
+      }
+  }
+      
+  
+  
+  
+  

@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-08-06T08:06:12.507Z",
+    "end": "2020-08-06T08:06:34.561Z",
+    "duration": 22054,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3579edb9-84a4-4688-94bf-d954c2ab6ac2",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d62d9c41-b4e2-484b-b040-521bd60e455b",
+          "title": "UseCase 01 - Organization Structure",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC03 - User should be able to create a transformation opportunity successfully",
+              "fullTitle": "UseCase 01 - Organization Structure TC03 - User should be able to create a transformation opportunity successfully",
+              "timedOut": null,
+              "duration": 18492,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "var _this3 = this;\ncy.log('We are in the third test');\ncy.get('.process-repository').click();\ncy.log('Process Repository page has been clicked');\ncy.wait(2000);\ncy.get('.MuiTab-wrapper').should('have.text', 'Transformation');\ncy.get('.MuiButton-label > .MuiSvgIcon-root > path').click({\n  force: true\n});\nconsole.log('Add Process has been clicked'); // Enter the Process Name\ncy.get('#outlined-basic').type(this.info.process_name); // Click on the Level 1 Workspace drop down\ncy.get(':nth-child(7) > :nth-child(1) > :nth-child(1) > .MuiInputBase-root > .MuiSelect-root').click(); // Select 'Parent Domain from the Sub Domain list\ncy.get('li').contains(this.info.subdomain).trigger('mouseover').click({\n  force: true\n});\ncy.log('***** SUB DOMAIN HAS BEEN SELECTED SUCCESSFULLY *****');\ncy.wait(500); // Click on Process Group Drop Down\ncy.get(':nth-child(2) > .MuiInputBase-root > .MuiSelect-root').click();\ncy.wait(500); // Select 'RCA Group' from the Process Group list\ncy.get('li').contains(this.info.group).trigger('mouseover').click({\n  force: true\n});\ncy.log('***** PROCESS GROUP HAS BEEN SELECTED SUCCESSFULLY *****');\ncy.wait(500); // Select the stage\ncy.get('.MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input').eq(2).click();\ncy.get('li').contains(this.info.stage).trigger('mouseover').click({\n  force: true\n});\ncy.log('***** STAGE HAS BEEN SELECTED SUCCESSFULLY *****'); // Select the Process Start Date\ncy.get('.MuiInputBase-input.MuiOutlinedInput-input').eq(5).click();\nvar startDate = Cypress.moment().subtract(1, 'year').subtract(1, 'month').add(1, 'day').format('YYYY-MM-DD');\nconsole.log(\"Start date calculated is : \", startDate);\ncy.get('.MuiInputBase-input.MuiOutlinedInput-input').eq(5).type(startDate);\nconsole.log(\"Start Date has beeen selected successfully\"); // Select the Process End Date\ncy.get('.MuiInputBase-input.MuiOutlinedInput-input').eq(6).click();\nvar endDate = Cypress.moment().add(5, 'year').subtract(1, 'month').add(1, 'day').format('YYYY-MM-DD');\nconsole.log(\"End date calculated is : \", endDate);\ncy.get('.MuiInputBase-input.MuiOutlinedInput-input').eq(6).type(endDate);\nconsole.log(\"End Date has beeen selected successfully\");\ncy.log('***** PROCESS START AND END DATES ARE SELECTED *****');\ncy.wait(500);\ncy.get('.MuiButton-label').eq(2).should('have.text', 'Create').click();\ncy.log('################ NEW PROCESS IS CREATED SUCCESSFULLY ##############');\ncy.wait(1000);\ncy.get('[role=\"alert\"]').should('be.visible');\ncy.get('[role=\"alert\"]').contains(this.info.process_msg).invoke('text').then(function (text) {\n  var toastText = text;\n  expect(toastText).to.equal(_this3.info.process_msg);\n});\ncy.log('################ NEW PROCESS IS CREATED SUCCESSFULLY ##############');",
+              "err": {
+                "message": "CypressError: Timed out retrying: expected '[ <span.MuiTab-wrapper>, 1 more... ]' to have text 'Transformation', but the text was 'InnovationTransformation'",
+                "estack": "CypressError: Timed out retrying: expected '[ <span.MuiTab-wrapper>, 1 more... ]' to have text 'Transformation', but the text was 'InnovationTransformation'\n    at Object.cypressErr (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:104940:11)\n    at Object.throwErr (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:104895:18)\n    at Object.throwErrByPath (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:104927:17)\n    at retry (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:96263:16)\n    at onFailFn (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:85359:16)\n    at tryCatcher (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:138979:23)\n    at Promise._settlePromiseFromHandler (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:136915:31)\n    at Promise._settlePromise (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:136972:18)\n    at Promise._settlePromise0 (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:137017:10)\n    at Promise._settlePromises (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:137092:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:133704:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:133714:10)\n    at Async.drainQueues (https://magneto-qa.eveapp.net/__cypress/runner/cypress_runner.js:133588:14)",
+                "diff": null
+              },
+              "uuid": "84b7a172-5570-47bc-af4d-299a48ca0d46",
+              "parentUUID": "d62d9c41-b4e2-484b-b040-521bd60e455b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "84b7a172-5570-47bc-af4d-299a48ca0d46"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18492,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "charts": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/reports",
+        "reportFilename": "report",
+        "overwrite": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "4.1.0"
+    }
+  }
+}

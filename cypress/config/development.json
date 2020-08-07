@@ -1,0 +1,23 @@
+  {
+  "projectId": "napkod",
+  "env": {
+	  "ENVIRONMENT": "qa",
+	  "baseUrl": "https://magneto-qa.eveapp.net/",
+  	  "qa_username": "videvaraj@deloitte.com.au",
+      "qa_pwd": "R1ggl3@143987"
+	  
+  },
+  "reporter": "mochawesome",
+       "reporterOptions": {
+        "charts": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/reports",
+        "reportFilename": "report",
+        "overwrite": true 
+  }
+ 
+	
+}
+
+

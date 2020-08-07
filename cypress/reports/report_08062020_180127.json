@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-08-06T08:01:04.363Z",
+    "end": "2020-08-06T08:01:27.188Z",
+    "duration": 22825,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ab9a13a5-6d8a-4040-add7-3d1e565af166",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d42294d0-0977-4dc3-bc46-cd85f94cbf03",
+          "title": "UseCase 01 - Organization Structure",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC02 - User should be able to create LEVEL - 2 process group successfully",
+              "fullTitle": "UseCase 01 - Organization Structure TC02 - User should be able to create LEVEL - 2 process group successfully",
+              "timedOut": null,
+              "duration": 19952,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var _this2 = this;\ncy.log('We are in the second test');\ncy.get('.process-repository').click();\ncy.log('Process Repository page has been clicked');\ncy.wait(300);\ncy.get('.org-structure-icon > .MuiSvgIcon-root').click({\n  force: true\n});\ncy.log('***** ORGANISATION STRUCTURE HAS BEEN CLICKED *****');\nCypress.on('uncaught:exception', function (err, runnable) {\n  // returning false here prevents Cypress from\n  // failing the test\n  return false;\n});\ncy.wait(900);\ncy.get('.heat-map-item-container.heat-map-leve1.item-scale-empty').should('contain.text', this.info.subdomain);\ncy.log('Identified the L1');\ncy.get('#process-repository-ds > div.processes-content.row > div > div > div > div > div.heat-map > div > div.group-container.head-map-leve2-container > div.group-list-section.head-map-leve2-container > div:nth-child(n) > div:nth-child(1) > div').children('div.add-new-item').click({\n  force: true\n});\ncy.wait(800);\ncy.get('input.new-item-input').type(this.info.group);\ncy.get('.save-item-btn').click();\ncy.log('***** PROCESS GROUP HAS BEEN ADDED SUCCESSFULLY');\ncy.wait(800);\ncy.get('[role=\"alert\"]').should('be.visible');\ncy.get('[role=\"alert\"]').contains(this.info.group_msg).invoke('text').then(function (text) {\n  var processText = text;\n  expect(processText).to.equal(_this2.info.group_msg);\n});",
+              "err": {},
+              "uuid": "961a5fa8-f5c3-42ea-a0fe-5aef094ab604",
+              "parentUUID": "d42294d0-0977-4dc3-bc46-cd85f94cbf03",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "961a5fa8-f5c3-42ea-a0fe-5aef094ab604"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19952,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "charts": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/reports",
+        "reportFilename": "report",
+        "overwrite": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "4.1.0"
+    }
+  }
+}

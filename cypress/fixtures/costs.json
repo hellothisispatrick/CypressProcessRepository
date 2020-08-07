@@ -1,0 +1,11 @@
+{
+  "cost_description": "Build Cost",
+  "cost_type": "Resource",
+  "total_cost" : 2000,
+  "frequency": "Per day",
+  "payment_profile": "Initial Cash Outlay",
+  "category": "Opex",
+  "cost_msg": "Costs Added Successfully"
+       
+   
+}

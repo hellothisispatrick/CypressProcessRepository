@@ -1,0 +1,23 @@
+{
+  "name": "samplecypressproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open",
+    "cypress:run:cli": "cypress run --record --key fb4a2053-bdfd-4e41-a466-1c8141bba081",
+    "cypress:run": "cypress run --reporter mochawesome",
+    "cypress:run:stg": "npx cypress run --spec 'cypress/integration/examples/HomePageTest.js' --env configFile=staging --reporter mochawesome",
+    "cypress:run:qa": "npx cypress run --env configFile=qa --reporter mochawesome"
+  },
+  "author": "videvaraj@deloitte.com.au",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^3.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "mochawesome": "^4.1.0",
+    "mochawesome-merge": "^4.0.3"
+  }
+}

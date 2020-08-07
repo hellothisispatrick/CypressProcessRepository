@@ -1,0 +1,19 @@
+{
+  "ftes": 5,
+  "weeks_pa" : 45,
+   "days_pw" : 5,
+   "hours_pw": 50,
+   "avg_salary": 120000,
+   "add_cost": 5,
+   "fte_efficiency": 90,
+   "trns_volume": 1200,
+   "frequncy_vol": "per day",
+   "std_path": 90,
+   "std_path_auto": 100,
+   "pre_proc_time": 45,
+   "post_proc_time": 10,
+    "bd_msg": "Benefit driver added successfully",
+    "avg_time": "5"
+    
+   
+}

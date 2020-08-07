@@ -1,0 +1,14 @@
+  {
+  "projectId": "napkod",
+  "env": {
+	  "ENVIRONMENT": "staging",
+	  "baseUrl": "https://weyland-corp-stg.eveapp.net/",
+  	  "qa_username": "videvaraj@deloitte.com.au",
+      "qa_pwd": "Audi@64uab"
+	  
+  }
+  
+	
+}
+
+
