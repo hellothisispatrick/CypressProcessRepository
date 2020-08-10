@@ -7,11 +7,15 @@
    "org_title": "Organizational Structure",
    "subdomain": "Test SubDomain",
    "group": "Test ProcessGrp",
+   "group_change": "Update Lvl2",
+   "subdomain_change": "Update Lvl1",
    "group_msg": "New group created successfully.",
+   "group_delete_msg": "Successfully deleted group.",
+   "group_edit_msg": "Group name updated successfully.",
    "owner_title": "Add Owner",
    "sme_title": "Add SMEs",
-   "owner": "vidhya.akilesh@gmail.com",
-   "sme": "vidhya.akilesh@gmail.com"    
+   "owner": "altin@deloitte.com.au",
+   "sme": "altin@deloitte.com.au"    
 
    
 }

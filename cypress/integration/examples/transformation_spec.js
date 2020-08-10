@@ -48,11 +48,10 @@ beforeEach(function () {
 
 */
 
-describe('UseCase 01 - Organization Structure', function() {
+describe('UseCase 01 - Organization Structure and Transformation feature regression', function() {
     
         it('TC01 - User should be able to create LEVEL - 1 process group successfully', function() {
             
-          
         // Should be on a new URL which includes '/automation'
         cy.url().should('include', '/home')
         cy.wait(1500);
@@ -125,8 +124,7 @@ describe('UseCase 01 - Organization Structure', function() {
 */
   
     it('TC02 - User should be able to create LEVEL - 2 process group successfully', function() {
-        cy.log('We are in the second test')
-         
+               
         cy.get('.process-repository').click();
         cy.log('Process Repository page has been clicked');
         cy.wait(300);
@@ -187,8 +185,7 @@ describe('UseCase 01 - Organization Structure', function() {
 
 */
 it('TC03 - User should be able to create a transformation opportunity successfully', function() {
-        cy.log('We are in the third test')
-
+       
         cy.get('.process-repository').click();
         cy.log('Process Repository page has been clicked');
 
@@ -341,9 +338,7 @@ it('TC03 - User should be able to create a transformation opportunity successful
 */
 
 it('TC04 - User should be able to search for an opportunity successfully', function() {
-    cy
-    .log('We are in the fourth test')
-
+    
     cy.get('.process-repository').click();
     cy.log('Process Repository page has been clicked');
     cy.wait(2000);
@@ -397,9 +392,7 @@ it('TC04 - User should be able to search for an opportunity successfully', funct
 
 */
 it('TC05 - User should be able to assign an owner to his opportunity successfully', function() {
-    cy
-    .log('We are in the fifth test')
-
+    
     cy.get('.process-repository').click();
     cy.log('Process Repository page has been clicked');
     cy.wait(2000);
@@ -517,9 +510,7 @@ it('TC05 - User should be able to assign an owner to his opportunity successfull
 */
 
 it('TC06 - User should be able to assign a SME to his opportunity successfully', function() {
-    cy
-    .log('We are in the sixth test')
-
+    
     cy.get('.process-repository').click();
     cy.log('Process Repository page has been clicked');
     cy.wait(2000);
@@ -638,10 +629,7 @@ it('TC06 - User should be able to assign a SME to his opportunity successfully',
 
 */
 it('TC07 - User should be able to add a benefit driver successfully', function() {
-    cy
-    .log('We are in the seventh test')
-
-   
+      
     cy.get('.process-repository').click();
     cy.log('Process Repository page has been clicked');
     cy.wait(2000);
@@ -843,9 +831,7 @@ it('TC07 - User should be able to add a benefit driver successfully', function()
 */
 
 it('TC08 - User should be able to update complexity successfully', function() {
-    cy
-    .log('We are in the eigth test')
-
+    
     cy
     .wait(500);
 
@@ -931,9 +917,7 @@ it('TC08 - User should be able to update complexity successfully', function() {
 */
 
  it('TC09 - Should update costs to process successfully', function() {
-    cy
-    .log('We are in the ninth test')
-
+   
     cy
     .wait(500);
 
@@ -1069,9 +1053,7 @@ it('TC08 - User should be able to update complexity successfully', function() {
 */
 
 it('TC10 - Opportunity should be allowed to delete successfully', function() {
-    cy
-    .log('We are in the tenth test')
-
+    
     cy
     .wait(500);
 
@@ -1139,7 +1121,222 @@ it('TC10 - Opportunity should be allowed to delete successfully', function() {
 
 })
 
-});
+/*
 
+=====================================================================================================================================================
+===================================================  END OF TEST CASE 10  ==========================================================================
+=====================================================================================================================================================
 
+*/
+
+/*
+
+=================================================================================================================================
+================================   TEST CASE 11 -->  EDIT  LEVEL - 2 PROCESS GROUP    ===============================================
+=================================================================================================================================
+
+*/
+it('TC11 - Verify if Level - 2 process group can be edited successfully', function() {
+
+            
+    cy.get('.process-repository').click();
+    cy.log('Process Repository page has been clicked');
+    cy.wait(300);
+    cy.get('.org-structure-icon > .MuiSvgIcon-root').click({force:true});
+    cy.log('***** ORGANISATION STRUCTURE HAS BEEN CLICKED *****');  
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        // returning false here prevents Cypress from
+        // failing the test
+        return false
+         })
+
+    cy.wait(900)
+    const GroupBox = cy.get('.heat-map-item-container.heat-map-leve2.item-scale-empty')
+    GroupBox.children('.heat-map-item-text.clickable-area').find('div').contains(this.info.group).parents('div.heat-map-item-container.heat-map-leve2.item-scale-empty')
+    .children().first().children().first().find('svg').click( {force: true });
+
+    cy
+    .get('input.new-item-input').click()
+    .clear().type(this.info.group_change);
+    
+    cy.get('.save-item-btn')
+    .click();                 
+
+    
+    cy.wait(800);
+    cy.get('[role="alert"]').should('be.visible') ;
+
+    cy.get('[role="alert"]').contains(this.info.group_edit_msg).invoke('text')
+    .then((text)=>{
+    const processText = text;
+    expect(processText).to.equal(this.info.group_edit_msg);
+    
+        })  
+
+    })
+/*
+
+=====================================================================================================================================================
+===================================================  END OF TEST CASE 11  ==========================================================================
+=====================================================================================================================================================
+
+*/
+
+/*
+
+=================================================================================================================================
+================================   TEST CASE 12 --> EDIT LEVEL - 1 PROCESS GROUP    ===============================================
+=================================================================================================================================
+
+*/
+it('TC12 - Verify if Level - 1 process group can be edited successfully', function() {
+
+            
+    cy.get('.process-repository').click();
+    cy.log('Process Repository page has been clicked');
+    cy.wait(300);
+    cy.get('.org-structure-icon > .MuiSvgIcon-root').click({force:true});
+    cy.log('***** ORGANISATION STRUCTURE HAS BEEN CLICKED *****');  
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        // returning false here prevents Cypress from
+        // failing the test
+        return false
+         })
+
+         cy.wait(900)
+         const SubDomainBox = cy.get('.heat-map-item-container.heat-map-leve1.item-scale-empty')
+         SubDomainBox.children('.heat-map-item-text').find('div').contains(this.info.subdomain).parents('div.heat-map-item-container.heat-map-leve1.item-scale-empty')
+         .children().first().children().first().find('svg').click( {force: true });
+
+    cy
+    .get('input.new-item-input').click()
+    .clear().type(this.info.subdomain_change);
+    
+    cy.get('.save-item-btn')
+    .click();                 
+
+    
+    cy.wait(800);
+    cy.get('[role="alert"]').should('be.visible') ;
+
+    cy.get('[role="alert"]').contains(this.info.group_edit_msg).invoke('text')
+    .then((text)=>{
+    const processText = text;
+    expect(processText).to.equal(this.info.group_edit_msg);
+    
+        })  
+    console.log("SUB DOMAIN NAME HAS BEEN EDITED SUCCESSFULLY")
+
+    })
+
+/*
+
+=====================================================================================================================================================
+===================================================  END OF TEST CASE 12  ==========================================================================
+=====================================================================================================================================================
+
+*/
+
+/*
+
+=================================================================================================================================
+================================   TEST CASE 13 -->  DELETE LEVEL - 2 PROCESS GROUP    ===============================================
+=================================================================================================================================
+
+*/
+it('TC13 - Verify if Level -2 process group can be deleted successfully', function() {
+
+            
+        cy.get('.process-repository').click();
+        cy.log('Process Repository page has been clicked');
+        cy.wait(300);
+        cy.get('.org-structure-icon > .MuiSvgIcon-root').click({force:true});
+        cy.log('***** ORGANISATION STRUCTURE HAS BEEN CLICKED *****');  
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            // returning false here prevents Cypress from
+            // failing the test
+            return false
+             })
+   
+        cy.wait(900)
+        const GroupBox = cy.get('.heat-map-item-container.heat-map-leve2.item-scale-empty')
+        GroupBox.children('.heat-map-item-text.clickable-area').find('div').contains(this.info.group_change).parents('div.heat-map-item-container.heat-map-leve2.item-scale-empty')
+        .children().first().children().last().find('svg').click( {force: true });
+        
+        cy.get('.save-item-btn')
+        .click();                 
+    
+        
+        cy.wait(800);
+        cy.get('[role="alert"]').should('be.visible') ;
+
+        cy.get('[role="alert"]').contains(this.info.group_delete_msg).invoke('text')
+        .then((text)=>{
+        const processText = text;
+        expect(processText).to.equal(this.info.group_delete_msg);
+        
+            })  
+
+        })
+
+/*
+
+=====================================================================================================================================================
+===================================================  END OF TEST CASE 13  ==========================================================================
+=====================================================================================================================================================
+
+*/
+
+/*
+
+=================================================================================================================================
+================================   TEST CASE 14 -->  DELETE LEVEL - 1 PROCESS GROUP    ===============================================
+=================================================================================================================================
+
+*/
+it('TC14 - Verify if Level - 1  process group can be deleted successfully', function() {
+
+           
+        cy.get('.process-repository').click();
+        cy.log('Process Repository page has been clicked');
+        cy.wait(300);
+        cy.get('.org-structure-icon > .MuiSvgIcon-root').click({force:true});
+        cy.log('***** ORGANISATION STRUCTURE HAS BEEN CLICKED *****');  
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            // returning false here prevents Cypress from
+            // failing the test
+            return false
+             })
+   
+        cy.wait(900)
+        const SubDomainBox = cy.get('.heat-map-item-container.heat-map-leve1.item-scale-empty')
+        SubDomainBox.children('.heat-map-item-text').find('div').contains(this.info.subdomain_change).parents('div.heat-map-item-container.heat-map-leve1.item-scale-empty')
+        .children().first().children().last().find('svg').click( {force: true });
+        
+        cy.get('.save-item-btn')
+        .click();                 
+    
+        
+        cy.wait(800);
+        cy.get('[role="alert"]').should('be.visible') ;
+
+        cy.get('[role="alert"]').contains(this.info.group_delete_msg).invoke('text')
+        .then((text)=>{
+        const processText = text;
+        expect(processText).to.equal(this.info.group_delete_msg);
+        console.log("SUB-DOMAIN DELETED SUCCESSFULLY");
+
+              
+            })  
+
+        })
+    });
+
+/*
+
+=====================================================================================================================================================
+===================================================  END OF TEST CASE 14  ==========================================================================
+=====================================================================================================================================================
+
+*/
 
